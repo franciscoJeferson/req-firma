@@ -265,24 +265,12 @@
       </div>
     </form>
   </div>
-  <script src="https://unpkg.com/imask@6.6.1/dist/imask.js"></script>
   <script>
     (() => {
       'use strict'
       let loading = false;
-      var tel_cel_mask = document.querySelector('#tel-cel');
-      const rg_mask = document.querySelector('#rg');
-
-      IMask(tel_cel_mask, {
-        mask: '(00) 00000-0000'
-      });
-      IMask(rg_mask, {
-        mask: '00.000.000-0'
-      })
-      // // Fetch all the forms we want to apply custom Bootstrap validation styles to
       const forms = document.querySelectorAll('.needs-validation')
 
-      // // Loop over them and prevent submission
       Array.from(forms).forEach(form => {
         form.addEventListener('submit', event => {
           event.preventDefault()
