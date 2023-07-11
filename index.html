@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    header {
+      width: 100%;
+      height: 10em;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container p-2">
+    <header class="bg-danger bg-gradient rounded d-flex align-items-center justify-content-center p-2">
+      <div class="row p-3 rounded d-flex align-items-center justify-content-center text-center">
+        <h5 class="text-center text-light">Cartório Moura. Oﬁcial do Registro de Imóveis da Comarca de
+          Itapipoca/CE</h5>
+      </div>
+    </header>
+
+    <hr />
+
+    <p>
+      Nesta área, disponibilizamos algumas minutas para requisição de abertura de firma.
+    </p>
+
+    <div class="col-md-12">
+      <h5>Dados pessoais</h5>
+    </div>
+
+    <form class="row g-3 needs-validation" novalidate>
+      <div class="col-md-6">
+        <label class="form-label">Tipo <span class="text-danger">*</span></label>
+        <select class="form-select" id="tipo" aria-label="Default select example" required>
+          <option selected disabled value="">Selecione uma opção</option>
+          <option value="Pessoa Física">Pessoa Física</option>
+          <option value="Pessoa Jurídica">Pessoa Jurídica</option>
+          <option value="OAB">OAB</option>
+        </select>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <label for="cpf" class="form-label">CPF/CNPJ/Certificado Digital(OAB) <span
+              class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="cpf" placeholder="000.000.000-00/000000" required>
+        </div>
+        <div class="col-md-6">
+          <label for="nacionalidade" class="form-label">Nacionalidade <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="nacionalidade" placeholder="brasileiro" required>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <label for="nome" class="form-label">Nome <span class="text-danger">*</span></label>
+        <input type="text" class="form-control" id="nome" placeholder="Jose, Ana..." required>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Sexo</label>
+        <select class="form-select" id="sexo" aria-label="Default select example">
+          <option selected disabled value="">Selecione uma opção</option>
+          <option value="Masculino">Masculino</option>
+          <option value="Feminino">Feminino</option>
+          <option value="Indefinido">Indefinido</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <label for="data-nascimento">Data de Nascimento <span class="text-danger">*</span></label>
+        <input type="date" id="data-nascimento" class="form-control" required>
+      </div>
+      <div class="col-md-6">
+        <label for="rg" class="form-label">Portador(a) do RG</label>
+        <input type="text" class="form-control" id="rg" placeholder="00.000.000-0">
+      </div>
+      <div class="col-md-6">
+        <label for="data-rg" class="form-label">Data de emissão do RG</label>
+        <input type="date" class="form-control" id="data-rg">
+      </div>
+      <div class="col-md-6">
+        <label for="orgao-emissor-rg" class="form-label">Orgão emissor do RG</label>
+        <input type="text" class="form-control" id="orgao-emissor-rg">
+      </div>
+      <div class="col-md-6">
+        <label for="carteira-trabalho" class="form-label">Carteira de trabalho</label>
+        <input type="text" class="form-control" id="carteira-trabalho">
+      </div>
+      <div class="col-md-6">
+        <label for="cidade-nascimento" class="form-label">Cidade de nascimento</label>
+        <input type="text" class="form-control" id="cidade-nascimento" placeholder="Cidade de nascimento">
+      </div>
+      <div class="col-md-6">
+        <label for="naturalidade" class="form-label">Naturalidade</label>
+        <input type="text" class="form-control" id="naturalidade" placeholder="Naturalidade">
+      </div>
+      <div class="col-md-6">
+        <label for="cnh" class="form-label">CNH</label>
+        <input type="text" class="form-control" id="cnh" placeholder="CNH">
+      </div>
+      <div class="col-md-6">
+        <label for="cat-cnh" class="form-label">Categoria CNH</label>
+        <input type="text" class="form-control" id="cat-cnh" placeholder="Categoria CNH">
+      </div>
+      <div class="col-md-6">
+        <label for="data-cnh" class="form-label">Data da primeira habilitação</label>
+        <input type="date" class="form-control" id="data-cnh">
+      </div>
+      <div class="col-md-6">
+        <label for="val-cnh" class="form-label">Data de validação do CNH</label>
+        <input type="date" class="form-control" id="val-cnh">
+      </div>
+      <div class="col-md-6">
+        <label for="reservista" class="form-label">Reservista</label>
+        <input type="text" class="form-control" id="reservista">
+      </div>
+      <div class="col-md-6">
+        <label for="titu-eleitoral" class="form-label">Titulo eleitoral</label>
+        <input type="text" class="form-control" id="titu-eleitoral">
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <label class="form-label">Estado cívil <span class="text-danger">*</span></label>
+          <select class="form-select" id="est-civil" aria-label="Default select example" required>
+            <option selected disabled value="">Selecione uma opção</option>
+            <option value="Casado(a)">Casado(a)</option>
+            <option value="Solteiro(a)">Solteiro(a)</option>
+            <option value="Divorciado(a)">Divorciado(a)</option>
+            <option value="Viúvo(a)">Viúvo(a)</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="zon-eleitoral" class="form-label">Zona/Seção eleitoral</label>
+        <input type="text" class="form-control" id="zon-eleitoral">
+      </div>
+      <div class="col-md-6">
+        <label for="mun-eleitoral" class="form-label">Município eleitoral</label>
+        <input type="text" class="form-control" id="mun-eleitoral">
+      </div>
+      <div class="col-md-6">
+        <label for="email" class="form-label">Email pessoal</label>
+        <input type="email" class="form-control" id="email">
+      </div>
+      <div class="col-md-6">
+        <label for="prof" class="form-label">Profissão</label>
+        <input type="text" class="form-control" id="prof">
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <label class="form-label">Servidor público <span class="text-danger">*</span></label>
+          <select class="form-select" id="ser-publico" aria-label="Default select example" required>
+            <option selected disabled value="">Selecione uma opção</option>
+            <option value="É servidor público">É servidor público</option>
+            <option value="Não é servidor público">Não é servidor público</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <label for="fili-01" class="form-label">Filiação 01</label>
+        <input type="text" class="form-control" id="fili-01" placeholder="Filiação...">
+      </div>
+      <div class="col-md-12">
+        <label for="fili-02" class="form-label">Filiação 02</label>
+        <input type="text" class="form-control" id="fili-02" placeholder="Filiação...">
+      </div>
+      <div class="row">
+        <label for="def-visual">É deficiente visual?
+          <input type="checkbox" id="def-visual">
+        </label>
+        <label for="rel-incapaz">É relativamente incapaz?
+          <input type="checkbox" id="rel-incapaz">
+        </label>
+        <label for="analfabeto">É analfabeto?
+          <input type="checkbox" id="analfabeto">
+        </label>
+        <label for="imp-assinar">É impossibilitado de assinar?
+          <input type="checkbox" id="imp-assinar">
+        </label>
+      </div>
+      <div class="col-md-12">
+        <h5>Telefone</h5>
+      </div>
+      <div class="col-md-6">
+        <label for="tel-fixo" class="form-label">Telefone fixo</label>
+        <input type="text" class="form-control" id="tel-fixo" placeholder="">
+      </div>
+      <div class="col-md-6">
+        <label for="tel-cel" class="form-label">Telefone celular <span class="text-danger">*</span></label>
+        <input type="text" class="form-control" id="tel-cel" placeholder="(00) 00000-0000" required>
+      </div>
+      <div class="col-md-12">
+        <h5>Endereço</h5>
+      </div>
+      <div class="row">
+        <label for="res-brasil">Reside no Brasi?
+          <input type="checkbox" id="res-brasil">
+        </label>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <label for="cep" class="form-label">CEP</label>
+          <input type="text" class="form-control" id="cep">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Zona <span class="text-danger">*</span></label>
+        <select class="form-select" id="zona-local" aria-label="Default select example" required>
+          <option selected disabled value="">Selecione uma opção</option>
+          <option value="Imóvel urbano">Imóvel urbano</option>
+          <option value="Imóvel rural">Imóvel rural</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Tipo de local <span class="text-danger">*</span></label>
+        <select class="form-select" id="tip-local" aria-label="Default select example" required>
+          <option selected disabled value="">Selecione uma opção</option>
+          <option value="Rua">Rua</option>
+          <option value="Avenida">Avenida</option>
+          <option value="Povoado">Povoado</option>
+          <option value="Travessa">Travessa</option>
+          <option value="Sitio">Sitio</option>
+          <option value="Fazenda">Fazenda</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <label for="rua" class="form-label">Rua <span class="text-danger">*</span></label>
+        <input type="text" class="form-control" id="rua" placeholder="Rua..." required>
+      </div>
+      <div class="col-md-6">
+        <label for="numero" class="form-label">Número <span class="text-danger">*</span></label>
+        <input type="number" class="form-control" id="numero" placeholder="0" required>
+      </div>
+      <div class="col-md-6">
+        <label for="bairro" class="form-label">Bairro</label>
+        <input type="text" class="form-control" id="bairro" placeholder="Bairro...">
+      </div>
+      <div class="col-md-6">
+        <label for="cidade" class="form-label">Cidade <span class="text-danger">*</span></label>
+        <input type="text" class="form-control" id="cidade" placeholder="Cidade..." required>
+      </div>
+      <div class="col-md-12">
+        <label for="complemento" class="form-label">Complemento</label>
+        <input type="text" class="form-control" id="complemento" placeholder="Complemento...">
+      </div>
+      <div class="col-12 d-flex justify-content-center">
+        <button class="btn btn-danger bg-gradient d-flex flex-row justify-content-center align-items-center gap-3"
+          type="submit">
+          <div class="spinner-border d-none" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          Enviar requisição de firma
+        </button>
+      </div>
+    </form>
+  </div>
+  <script src="https://unpkg.com/imask@6.6.1/dist/imask.js"></script>
+  <script>
+    (() => {
+      'use strict'
+      let loading = false;
+      var tel_cel_mask = document.querySelector('#tel-cel');
+      const rg_mask = document.querySelector('#rg');
+
+      IMask(tel_cel_mask, {
+        mask: '(00) 00000-0000'
+      });
+      IMask(rg_mask, {
+        mask: '00.000.000-0'
+      })
+      // // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      const forms = document.querySelectorAll('.needs-validation')
+
+      // // Loop over them and prevent submission
+      Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+          event.preventDefault()
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          } else {
+            const tipo = document.querySelector("#tipo").value
+            const cpf = document.querySelector("#cpf").value
+            const nacionalidade = document.querySelector("#nacionalidade").value
+            const nome = document.querySelector("#nome").value
+            const sexo = document.querySelector("#sexo").value
+            const data_nascimento = document.querySelector("#data-nascimento").value
+            const rg = document.querySelector("#rg").value
+            const data_rg = document.querySelector("#data-rg").value
+            const orgao_emissor_rg = document.querySelector("#orgao-emissor-rg").value
+            const carteira_trabalho = document.querySelector("#carteira-trabalho").value
+            const cidade_nascimento = document.querySelector("#cidade-nascimento").value
+            const naturalidade = document.querySelector("#naturalidade").value
+            const cnh = document.querySelector("#cnh").value
+            const cat_cnh = document.querySelector("#cat-cnh").value
+            const data_cnh = document.querySelector("#data-cnh").value
+            const val_cnh = document.querySelector("#val-cnh").value
+            const reservista = document.querySelector("#reservista").value
+            const titu_eleitoral = document.querySelector("#titu-eleitoral").value
+            const est_civil = document.querySelector("#est-civil").value
+            const zon_eleitoral = document.querySelector("#zon-eleitoral").value
+            const mun_eleitoral = document.querySelector("#mun-eleitoral").value
+            const email = document.querySelector("#email").value
+            const prof = document.querySelector("#prof").value
+            const ser_publico = document.querySelector("#ser-publico").value
+            const fili_01 = document.querySelector("#fili-01").value
+            const fili_02 = document.querySelector("#fili-02").value
+            const def_visual = document.querySelector("#def-visual").checked ? 'Sim' : "Não"
+            const rel_incapaz = document.querySelector("#rel-incapaz").checked ? 'Sim' : "Não"
+            const analfabeto = document.querySelector("#analfabeto").checked ? 'Sim' : "Não"
+            const imp_assinar = document.querySelector("#imp-assinar").checked ? 'Sim' : "Não"
+            const tel_fixo = document.querySelector("#tel-fixo").value
+            const tel_cel = document.querySelector("#tel-cel").value
+            const res_brasil = document.querySelector("#res-brasil").checked ? 'Sim' : "Não"
+            const cep = document.querySelector("#cep").value
+            const tip_local = document.querySelector("#tip-local").value
+            const zona_local = document.querySelector("#zona-local").value
+            const rua = document.querySelector("#rua").value
+            const numero = document.querySelector("#numero").value
+            const bairro = document.querySelector("#bairro").value
+            const cidade = document.querySelector("#cidade").value
+            const complemento = document.querySelector("#complemento").value
+
+            const data = {
+              Tipo: tipo,
+              CPF: cpf,
+              Nacionalidade: nacionalidade,
+              Name: nome,
+              Sexo: sexo,
+              Data_nascimento: data_nascimento,
+              RG: rg,
+              Data_emissao_RG: data_rg,
+              Orgao_emissor_rg: orgao_emissor_rg,
+              Carteira_trabalho: carteira_trabalho,
+              Cidade_nascimento: cidade_nascimento,
+              Naturalidade: naturalidade,
+              CNH: cnh,
+              Categoria_cnh: cat_cnh,
+              Data_primeira_habilitacao: data_cnh,
+              Validade_habilitacao: val_cnh,
+              Reservista: reservista,
+              Titulo_eleitoral: titu_eleitoral,
+              Estado_civil: est_civil,
+              Zona_eleitoral: zon_eleitoral,
+              Municipio_eleitoral: mun_eleitoral,
+              Email: email,
+              Profissao: prof,
+              Servidor_publico: ser_publico,
+              Filiacao_01: fili_01,
+              Filiacao_02: fili_02,
+              Deficiente_visual: def_visual,
+              Relativamente_incapaz: rel_incapaz,
+              Analfabeto: analfabeto,
+              Impossibilitado_assinar: imp_assinar,
+              Telefone_fixo: tel_fixo,
+              Telefone_celular: tel_cel,
+              Residente_brasil: res_brasil,
+              CEP: cep,
+              Zona: zona_local,
+              Tipo_local: tip_local,
+              Rua: rua,
+              Numero: numero,
+              Bairro: bairro,
+              Cidade: cidade,
+              Complemento: complemento,
+              Created: 'x-sheetmonkey-current-date-time'
+            };
+            if (loading) return
+            document.querySelector(".spinner-border").classList.remove("d-none")
+            document.querySelector('.btn').disabled = true
+            loading = true
+            fetch('https://api.sheetmonkey.io/form/kkWkuo7bswDfqZibsqEALc', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(data),
+            }).then((result) => {
+              document.querySelector(".spinner-border").classList.add("d-none")
+              document.querySelector('.btn').disabled = false
+              loading = false
+              if (result.status === 200) return window.open('./success.html')
+              window.open('./404.html')
+            }).catch((error) => {
+              document.querySelector(".spinner-border").classList.add("d-none")
+              document.querySelector('.btn').disabled = false
+              loading = false
+              window.open('./404.html')
+            })
+          }
+          form.classList.add('was-validated')
+        }, false)
+      })
+    })()
+  </script>
+</body>
+
+</html>
