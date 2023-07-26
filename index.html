@@ -38,133 +38,65 @@
     <p>
       Nesta área, disponibilizamos algumas minutas para requisição de abertura de firma.
     </p>
-
-    <div class="col-md-12">
-      <h5>Dados pessoais</h5>
-    </div>
-
     <form class="row g-3 needs-validation" novalidate>
-      <div class="col-md-6">
-        <label class="form-label">Tipo <span class="text-danger">*</span></label>
-        <select class="form-select" id="tipo" aria-label="Default select example" required>
-          <option selected disabled value="">Selecione uma opção</option>
-          <option value="Pessoa Física">Pessoa Física</option>
-          <option value="Pessoa Jurídica">Pessoa Jurídica</option>
-          <option value="OAB">OAB</option>
-        </select>
+      <div class="col-md-12">
+        <h5>Dados pessoais</h5>
       </div>
       <div class="row">
-        <div class="col-md-6">
-          <label for="cpf" class="form-label">CPF/CNPJ/Certificado Digital(OAB) <span
-              class="text-danger">*</span></label>
-          <input type="text" class="form-control" id="cpf" placeholder="000.000.000-00/000000" required>
-        </div>
-        <div class="col-md-6">
-          <label for="nacionalidade" class="form-label">Nacionalidade <span class="text-danger">*</span></label>
-          <input type="text" class="form-control" id="nacionalidade" placeholder="brasileiro" required>
-        </div>
+        <h6>Tipo</h6>
+        <label class="form-label" for="pessoa-fisica">
+          <input type="radio" name="tipo" id="pessoa-fisica" value="Pessoa física" checked>
+          Pessoa física
+        </label>
+        <label class="form-label" for="pessoa-juridica">
+          <input type="radio" name="tipo" id="pessoa-juridica" value="Pessoa jurídica">
+          Pessoa jurídica
+        </label>
       </div>
       <div class="col-md-12">
         <label for="nome" class="form-label">Nome <span class="text-danger">*</span></label>
         <input type="text" class="form-control" id="nome" placeholder="Jose, Ana..." required>
       </div>
-      <div class="col-md-6">
-        <label class="form-label">Sexo</label>
-        <select class="form-select" id="sexo" aria-label="Default select example">
-          <option selected disabled value="">Selecione uma opção</option>
-          <option value="Masculino">Masculino</option>
-          <option value="Feminino">Feminino</option>
-          <option value="Indefinido">Indefinido</option>
-        </select>
+
+      <div class="col-md-12">
+        <label for="cpf" class="form-label">CPF/CNPJ <span class="text-danger">*</span></label>
+        <input type="text" class="form-control" id="cpf" placeholder="000.000.000-00/000000" required>
       </div>
-      <div class="col-md-6">
-        <label for="data-nascimento">Data de Nascimento <span class="text-danger">*</span></label>
-        <input type="date" id="data-nascimento" class="form-control" required>
-      </div>
-      <div class="col-md-6">
-        <label for="rg" class="form-label">Portador(a) do RG</label>
-        <input type="text" class="form-control" id="rg" placeholder="00.000.000-0">
-      </div>
-      <div class="col-md-6">
-        <label for="data-rg" class="form-label">Data de emissão do RG</label>
-        <input type="date" class="form-control" id="data-rg">
-      </div>
-      <div class="col-md-6">
-        <label for="orgao-emissor-rg" class="form-label">Orgão emissor do RG</label>
-        <input type="text" class="form-control" id="orgao-emissor-rg">
-      </div>
-      <div class="col-md-6">
-        <label for="carteira-trabalho" class="form-label">Carteira de trabalho</label>
-        <input type="text" class="form-control" id="carteira-trabalho">
-      </div>
-      <div class="col-md-6">
-        <label for="cidade-nascimento" class="form-label">Cidade de nascimento</label>
-        <input type="text" class="form-control" id="cidade-nascimento" placeholder="Cidade de nascimento">
-      </div>
-      <div class="col-md-6">
-        <label for="naturalidade" class="form-label">Naturalidade</label>
-        <input type="text" class="form-control" id="naturalidade" placeholder="Naturalidade">
-      </div>
-      <div class="col-md-6">
-        <label for="cnh" class="form-label">CNH</label>
-        <input type="text" class="form-control" id="cnh" placeholder="CNH">
-      </div>
-      <div class="col-md-6">
-        <label for="cat-cnh" class="form-label">Categoria CNH</label>
-        <input type="text" class="form-control" id="cat-cnh" placeholder="Categoria CNH">
-      </div>
-      <div class="col-md-6">
-        <label for="data-cnh" class="form-label">Data da primeira habilitação</label>
-        <input type="date" class="form-control" id="data-cnh">
-      </div>
-      <div class="col-md-6">
-        <label for="val-cnh" class="form-label">Data de validação do CNH</label>
-        <input type="date" class="form-control" id="val-cnh">
-      </div>
-      <div class="col-md-6">
-        <label for="reservista" class="form-label">Reservista</label>
-        <input type="text" class="form-control" id="reservista">
-      </div>
-      <div class="col-md-6">
-        <label for="titu-eleitoral" class="form-label">Titulo eleitoral</label>
-        <input type="text" class="form-control" id="titu-eleitoral">
-      </div>
-      <div class="row">
+      <div class="row pessoa-fisica">
         <div class="col-md-6">
-          <label class="form-label">Estado cívil <span class="text-danger">*</span></label>
-          <select class="form-select" id="est-civil" aria-label="Default select example" required>
-            <option selected disabled value="">Selecione uma opção</option>
-            <option value="Casado(a)">Casado(a)</option>
-            <option value="Solteiro(a)">Solteiro(a)</option>
-            <option value="Divorciado(a)">Divorciado(a)</option>
-            <option value="Viúvo(a)">Viúvo(a)</option>
-          </select>
+          <label for="rg" class="form-label">RG (Registro Geral)</label>
+          <input type="text" class="form-control" id="rg">
+        </div>
+        <div class="col-md-6">
+          <label for="rne" class="form-label">RNE (Registro Nacional de Estrangeiro)</label>
+          <input type="text" class="form-control" id="rne">
+        </div>
+        <div class="col-md-6">
+          <div class="row">
+            <h6>Sexo</h6>
+            <label class="form-label" for="masc">
+              <input type="radio" name="sexo" id="masc" value="Masculino" checked>
+              Masculino
+            </label>
+            <label class="form-label" for="femi">
+              <input type="radio" name="sexo" id="femi" value="Feminino">
+              Feminino
+            </label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="nacionalidade" class="form-label">Nacionalidade</label>
+          <input type="text" class="form-control" id="nacionalidade">
         </div>
       </div>
-      <div class="col-md-6">
-        <label for="zon-eleitoral" class="form-label">Zona/Seção eleitoral</label>
-        <input type="text" class="form-control" id="zon-eleitoral">
-      </div>
-      <div class="col-md-6">
-        <label for="mun-eleitoral" class="form-label">Município eleitoral</label>
-        <input type="text" class="form-control" id="mun-eleitoral">
-      </div>
-      <div class="col-md-6">
-        <label for="email" class="form-label">Email pessoal</label>
-        <input type="email" class="form-control" id="email">
-      </div>
-      <div class="col-md-6">
-        <label for="prof" class="form-label">Profissão</label>
-        <input type="text" class="form-control" id="prof">
-      </div>
-      <div class="row">
+      <div class="row pessoa-juridica d-none">
         <div class="col-md-6">
-          <label class="form-label">Servidor público <span class="text-danger">*</span></label>
-          <select class="form-select" id="ser-publico" aria-label="Default select example" required>
-            <option selected disabled value="">Selecione uma opção</option>
-            <option value="É servidor público">É servidor público</option>
-            <option value="Não é servidor público">Não é servidor público</option>
-          </select>
+          <label for="ie" class="form-label">IE (Inscrição Estadual)</label>
+          <input type="text" class="form-control" id="ie">
+        </div>
+        <div class="col-md-6">
+          <label for="nire" class="form-label">NIRE (Número de Identificação do Registro de Empresas)</label>
+          <input type="text" class="form-control" id="nire">
         </div>
       </div>
       <div class="col-md-12">
@@ -175,38 +107,21 @@
         <label for="fili-02" class="form-label">Filiação 02</label>
         <input type="text" class="form-control" id="fili-02" placeholder="Filiação...">
       </div>
-      <div class="row">
-        <label for="def-visual">É deficiente visual?
-          <input type="checkbox" id="def-visual">
-        </label>
-        <label for="rel-incapaz">É relativamente incapaz?
-          <input type="checkbox" id="rel-incapaz">
-        </label>
-        <label for="analfabeto">É analfabeto?
-          <input type="checkbox" id="analfabeto">
-        </label>
-        <label for="imp-assinar">É impossibilitado de assinar?
-          <input type="checkbox" id="imp-assinar">
-        </label>
-      </div>
       <div class="col-md-12">
-        <h5>Telefone</h5>
+        <h5>Telefone/Contato</h5>
       </div>
-      <div class="col-md-6">
-        <label for="tel-fixo" class="form-label">Telefone fixo</label>
-        <input type="text" class="form-control" id="tel-fixo" placeholder="">
-      </div>
-      <div class="col-md-6">
-        <label for="tel-cel" class="form-label">Telefone celular <span class="text-danger">*</span></label>
-        <input type="text" class="form-control" id="tel-cel" placeholder="(00) 00000-0000" required>
+      <div class="row">
+        <div class="col-md-6">
+          <label for="tel" class="form-label">Telefone<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="tel" placeholder="(00) 00000-0000" required>
+        </div>
+        <div class="col-md-6">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email">
+        </div>
       </div>
       <div class="col-md-12">
         <h5>Endereço</h5>
-      </div>
-      <div class="row">
-        <label for="res-brasil">Reside no Brasi?
-          <input type="checkbox" id="res-brasil">
-        </label>
       </div>
       <div class="row">
         <div class="col-md-6">
@@ -217,41 +132,54 @@
           </div>
         </div>
       </div>
-      <div class="col-md-6">
-        <label class="form-label">Zona <span class="text-danger">*</span></label>
-        <select class="form-select" id="zona-local" aria-label="Default select example" required>
-          <option selected disabled value="">Selecione uma opção</option>
-          <option value="Imóvel urbano">Imóvel urbano</option>
-          <option value="Imóvel rural">Imóvel rural</option>
-        </select>
+      <div class="row">
+        <div class="col-md-6">
+          <label for="end" class="form-label">Endereço</label>
+          <input type="text" class="form-control" id="end">
+        </div>
+        <div class="col-md-6">
+          <label for="bairro" class="form-label">Bairro</label>
+          <input type="text" class="form-control" id="bairro">
+        </div>
       </div>
-      <div class="col-md-6">
-        <label class="form-label">Tipo de local <span class="text-danger">*</span></label>
-        <select class="form-select" id="tip-local" aria-label="Default select example" required>
-          <option selected disabled value="">Selecione uma opção</option>
-          <option value="Rua">Rua</option>
-          <option value="Avenida">Avenida</option>
-          <option value="Povoado">Povoado</option>
-          <option value="Travessa">Travessa</option>
-          <option value="Sitio">Sitio</option>
-          <option value="Fazenda">Fazenda</option>
-        </select>
-      </div>
-      <div class="col-md-6">
-        <label for="rua" class="form-label">Rua <span class="text-danger">*</span></label>
-        <input type="text" class="form-control" id="rua" placeholder="Rua..." required>
-      </div>
-      <div class="col-md-6">
-        <label for="numero" class="form-label">Número <span class="text-danger">*</span></label>
-        <input type="number" class="form-control" id="numero" placeholder="0" required>
-      </div>
-      <div class="col-md-6">
-        <label for="bairro" class="form-label">Bairro</label>
-        <input type="text" class="form-control" id="bairro" placeholder="Bairro...">
-      </div>
-      <div class="col-md-6">
-        <label for="cidade" class="form-label">Cidade <span class="text-danger">*</span></label>
-        <input type="text" class="form-control" id="cidade" placeholder="Cidade..." required>
+      <div class="row">
+        <div class="col-md-6">
+          <label for="cidade" class="form-label">Cidade <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="cidade" placeholder="Cidade..." required>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Estado <span class="text-danger">*</span></label>
+          <select class="form-control select" name="uf" id="uf" required>
+            <option value="" label=" "></option>
+            <option value="AC">AC</option>
+            <option value="AL">AL</option>
+            <option value="AM">AM</option>
+            <option value="AP">AP</option>
+            <option value="BA">BA</option>
+            <option value="CE">CE</option>
+            <option value="ES">ES</option>
+            <option value="GO">GO</option>
+            <option value="MA">MA</option>
+            <option value="MG">MG</option>
+            <option value="MS">MS</option>
+            <option value="MT">MT</option>
+            <option value="PA">PA</option>
+            <option value="PB">PB</option>
+            <option value="PE">PE</option>
+            <option value="PI">PI</option>
+            <option value="PR">PR</option>
+            <option value="RJ">RJ</option>
+            <option value="RN">RN</option>
+            <option value="RO">RO</option>
+            <option value="RR">RR</option>
+            <option value="RS">RS</option>
+            <option value="SC">SC</option>
+            <option value="SE">SE</option>
+            <option value="SP">SP</option>
+            <option value="TO">TO</option>
+            <option value="Estrangeiro">Estrangeiro</option>
+          </select>
+        </div>
       </div>
       <div class="col-md-12">
         <label for="complemento" class="form-label">Complemento</label>
@@ -276,26 +204,45 @@
       const forms = document.querySelectorAll('.needs-validation')
       const veri_cep = document.querySelector('.veri-cep')
 
+      const load_content = () => {
+        if (document.querySelector('#pessoa-fisica').checked) {
+          document.querySelector('.pessoa-fisica').classList.remove('d-none');
+          document.querySelector('.pessoa-juridica').classList.add('d-none');
+          return
+        }
+        document.querySelector('.pessoa-fisica').classList.add('d-none');
+        document.querySelector('.pessoa-juridica').classList.remove('d-none');
+      }
+      load_content();
+      document.querySelector('#pessoa-fisica').addEventListener('change', () => {
+        load_content();
+      })
+      document.querySelector('#pessoa-juridica').addEventListener('change', () => {
+        load_content();
+      })
+
       veri_cep.addEventListener('click', () => {
         const cep = document.querySelector('#cep').value.trim().replace(/-/gi, '')
-        console.log('oe')
         if (!cep || cep === "") return
         axios.get(`https://viacep.com.br/ws/${cep}/json/`).then((response) => {
-          console.log(response)
           if (response.status !== 200) return
           if (response.data.erro) return
           document.querySelector('#bairro').value = response.data.bairro
-          if (response.data.logradouro === '') {
-            document.querySelector("#tip-local").value = "Povoado"
-            document.querySelector("#zona-local").value = "Imóvel rural"
-          } else {
-            document.querySelector("#tip-local").value = "Rua"
-            document.querySelector("#zona-local").value = "Imóvel urbano"
-          }
-          document.querySelector('#rua').value = response.data.logradouro
+          document.querySelector('#uf').value = response.data.uf;
           document.querySelector('#cidade').value = response.data.localidade
         })
       })
+      const get_pessoa_tipo = () => {
+        const pessoa_fisica = document.querySelector('#pessoa-fisica');
+        const pessoa_juridica = document.querySelector('#pessoa-juridica');
+        return pessoa_fisica.checked ? pessoa_fisica.value : pessoa_juridica.value;
+      }
+      const get_sexo = () => {
+        const masc = document.querySelector('#masc');
+        const femi = document.querySelector('#femi');
+        return masc.checked ? masc.value : femi.value;
+      }
+
 
       Array.from(forms).forEach(form => {
         form.addEventListener('submit', event => {
@@ -304,92 +251,60 @@
             event.preventDefault()
             event.stopPropagation()
           } else {
-            const tipo = document.querySelector("#tipo").value
-            const cpf = document.querySelector("#cpf").value
-            const nacionalidade = document.querySelector("#nacionalidade").value
+            const tipo = get_pessoa_tipo();
             const nome = document.querySelector("#nome").value
-            const sexo = document.querySelector("#sexo").value
-            const data_nascimento = document.querySelector("#data-nascimento").value
-            const rg = document.querySelector("#rg").value
-            const data_rg = document.querySelector("#data-rg").value
-            const orgao_emissor_rg = document.querySelector("#orgao-emissor-rg").value
-            const carteira_trabalho = document.querySelector("#carteira-trabalho").value
-            const cidade_nascimento = document.querySelector("#cidade-nascimento").value
-            const naturalidade = document.querySelector("#naturalidade").value
-            const cnh = document.querySelector("#cnh").value
-            const cat_cnh = document.querySelector("#cat-cnh").value
-            const data_cnh = document.querySelector("#data-cnh").value
-            const val_cnh = document.querySelector("#val-cnh").value
-            const reservista = document.querySelector("#reservista").value
-            const titu_eleitoral = document.querySelector("#titu-eleitoral").value
-            const est_civil = document.querySelector("#est-civil").value
-            const zon_eleitoral = document.querySelector("#zon-eleitoral").value
-            const mun_eleitoral = document.querySelector("#mun-eleitoral").value
-            const email = document.querySelector("#email").value
-            const prof = document.querySelector("#prof").value
-            const ser_publico = document.querySelector("#ser-publico").value
+            const cpf = document.querySelector("#cpf").value
+            let rg = '';
+            let rne = '';
+            let sexo = '';
+            let nacio = '';
+            let ie = '';
+            let nire = '';
+            console.log(document.querySelector('#pessoa-fisica').checked)
+            if (document.querySelector('#pessoa-fisica').checked) {
+              console.log('kend')
+              rg = document.querySelector('#rg').value;
+              rne = document.querySelector('#rne').value;
+              sexo = get_sexo();
+              nacio = document.querySelector('#nacionalidade').value;
+            } else {
+              ie = document.querySelector('#ie').value;
+              nire = document.querySelector('#nire').value;
+            }
             const fili_01 = document.querySelector("#fili-01").value
             const fili_02 = document.querySelector("#fili-02").value
-            const def_visual = document.querySelector("#def-visual").checked ? 'Sim' : "Não"
-            const rel_incapaz = document.querySelector("#rel-incapaz").checked ? 'Sim' : "Não"
-            const analfabeto = document.querySelector("#analfabeto").checked ? 'Sim' : "Não"
-            const imp_assinar = document.querySelector("#imp-assinar").checked ? 'Sim' : "Não"
-            const tel_fixo = document.querySelector("#tel-fixo").value
-            const tel_cel = document.querySelector("#tel-cel").value
-            const res_brasil = document.querySelector("#res-brasil").checked ? 'Sim' : "Não"
+            const tel = document.querySelector("#tel").value
+            const email = document.querySelector("#email").value
             const cep = document.querySelector("#cep").value
-            const tip_local = document.querySelector("#tip-local").value
-            const zona_local = document.querySelector("#zona-local").value
-            const rua = document.querySelector("#rua").value
-            const numero = document.querySelector("#numero").value
+            const endereco = document.querySelector("#end").value
             const bairro = document.querySelector("#bairro").value
             const cidade = document.querySelector("#cidade").value
+            const uf = document.querySelector("#uf").value
             const complemento = document.querySelector("#complemento").value
 
             const data = {
               Tipo: tipo,
+              Nome: nome,
               CPF: cpf,
-              Nacionalidade: nacionalidade,
-              Name: nome,
-              Sexo: sexo,
-              Data_nascimento: data_nascimento,
               RG: rg,
-              Data_emissao_RG: data_rg,
-              Orgao_emissor_rg: orgao_emissor_rg,
-              Carteira_trabalho: carteira_trabalho,
-              Cidade_nascimento: cidade_nascimento,
-              Naturalidade: naturalidade,
-              CNH: cnh,
-              Categoria_cnh: cat_cnh,
-              Data_primeira_habilitacao: data_cnh,
-              Validade_habilitacao: val_cnh,
-              Reservista: reservista,
-              Titulo_eleitoral: titu_eleitoral,
-              Estado_civil: est_civil,
-              Zona_eleitoral: zon_eleitoral,
-              Municipio_eleitoral: mun_eleitoral,
-              Email: email,
-              Profissao: prof,
-              Servidor_publico: ser_publico,
+              RNE: rne,
+              Nacionalidade: nacio,
+              IE: ie,
+              NIRE: nire,
               Filiacao_01: fili_01,
               Filiacao_02: fili_02,
-              Deficiente_visual: def_visual,
-              Relativamente_incapaz: rel_incapaz,
-              Analfabeto: analfabeto,
-              Impossibilitado_assinar: imp_assinar,
-              Telefone_fixo: tel_fixo,
-              Telefone_celular: tel_cel,
-              Residente_brasil: res_brasil,
+              Telefone: tel,
+              Email: email,
               CEP: cep,
-              Zona: zona_local,
-              Tipo_local: tip_local,
-              Rua: rua,
-              Numero: numero,
+              Endereco: endereco,
               Bairro: bairro,
               Cidade: cidade,
+              UF: uf,
               Complemento: complemento,
               Created: 'x-sheetmonkey-current-date-time'
             };
+            console.log(data);
+            return
             if (loading) return
             document.querySelector(".spinner-border").classList.remove("d-none")
             document.querySelector('.btn').disabled = true
