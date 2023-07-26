@@ -243,7 +243,6 @@
         return masc.checked ? masc.value : femi.value;
       }
 
-
       Array.from(forms).forEach(form => {
         form.addEventListener('submit', event => {
           event.preventDefault()
@@ -303,8 +302,6 @@
               Complemento: complemento,
               Created: 'x-sheetmonkey-current-date-time'
             };
-            console.log(data);
-            return
             if (loading) return
             document.querySelector(".spinner-border").classList.remove("d-none")
             document.querySelector('.btn').disabled = true
