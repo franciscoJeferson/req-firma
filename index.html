@@ -144,40 +144,71 @@
       </div>
       <div class="row">
         <div class="col-md-6">
-          <label for="cidade" class="form-label">Cidade <span class="text-danger">*</span></label>
-          <input type="text" class="form-control" id="cidade" placeholder="Cidade..." required>
+          <label class="form-label">Cidade <span class="text-danger">*</span></label>
+          <select class="form-control select" name="city" id="city" required>
+            <option value="" label=" "></option>
+            <!-- <option value="" label=" "></option> -->
+            <!-- <option value="AC">AC</option> -->
+            <!-- <option value="AL">AL</option> -->
+            <!-- <option value="AM">AM</option> -->
+            <!-- <option value="AP">AP</option> -->
+            <!-- <option value="BA">BA</option> -->
+            <!-- <option value="CE">CE</option> -->
+            <!-- <option value="ES">ES</option> -->
+            <!-- <option value="GO">GO</option> -->
+            <!-- <option value="MA">MA</option> -->
+            <!-- <option value="MG">MG</option> -->
+            <!-- <option value="MS">MS</option> -->
+            <!-- <option value="MT">MT</option> -->
+            <!-- <option value="PA">PA</option> -->
+            <!-- <option value="PB">PB</option> -->
+            <!-- <option value="PE">PE</option> -->
+            <!-- <option value="PI">PI</option> -->
+            <!-- <option value="PR">PR</option> -->
+            <!-- <option value="RJ">RJ</option> -->
+            <!-- <option value="RN">RN</option> -->
+            <!-- <option value="RO">RO</option> -->
+            <!-- <option value="RR">RR</option> -->
+            <!-- <option value="RS">RS</option> -->
+            <!-- <option value="SC">SC</option> -->
+            <!-- <option value="SE">SE</option> -->
+            <!-- <option value="SP">SP</option> -->
+            <!-- <option value="TO">TO</option> -->
+            <!-- <option value="Estrangeiro">Estrangeiro</option> -->
+          </select>
         </div>
         <div class="col-md-6">
           <label class="form-label">Estado <span class="text-danger">*</span></label>
-          <select class="form-control select" name="uf" id="uf" required>
+          <select class="form-control select" name="states" id="states" required>
             <option value="" label=" "></option>
-            <option value="AC">AC</option>
-            <option value="AL">AL</option>
-            <option value="AM">AM</option>
-            <option value="AP">AP</option>
-            <option value="BA">BA</option>
-            <option value="CE">CE</option>
-            <option value="ES">ES</option>
-            <option value="GO">GO</option>
-            <option value="MA">MA</option>
-            <option value="MG">MG</option>
-            <option value="MS">MS</option>
-            <option value="MT">MT</option>
-            <option value="PA">PA</option>
-            <option value="PB">PB</option>
-            <option value="PE">PE</option>
-            <option value="PI">PI</option>
-            <option value="PR">PR</option>
-            <option value="RJ">RJ</option>
-            <option value="RN">RN</option>
-            <option value="RO">RO</option>
-            <option value="RR">RR</option>
-            <option value="RS">RS</option>
-            <option value="SC">SC</option>
-            <option value="SE">SE</option>
-            <option value="SP">SP</option>
-            <option value="TO">TO</option>
-            <option value="Estrangeiro">Estrangeiro</option>
+            <!-- <option value="" label=" "></option> -->
+            <!-- <option value="AC">AC</option> -->
+            <!-- <option value="AL">AL</option> -->
+            <!-- <option value="AM">AM</option> -->
+            <!-- <option value="AP">AP</option> -->
+            <!-- <option value="BA">BA</option> -->
+            <!-- <option value="CE">CE</option> -->
+            <!-- <option value="ES">ES</option> -->
+            <!-- <option value="GO">GO</option> -->
+            <!-- <option value="MA">MA</option> -->
+            <!-- <option value="MG">MG</option> -->
+            <!-- <option value="MS">MS</option> -->
+            <!-- <option value="MT">MT</option> -->
+            <!-- <option value="PA">PA</option> -->
+            <!-- <option value="PB">PB</option> -->
+            <!-- <option value="PE">PE</option> -->
+            <!-- <option value="PI">PI</option> -->
+            <!-- <option value="PR">PR</option> -->
+            <!-- <option value="RJ">RJ</option> -->
+            <!-- <option value="RN">RN</option> -->
+            <!-- <option value="RO">RO</option> -->
+            <!-- <option value="RR">RR</option> -->
+            <!-- <option value="RS">RS</option> -->
+            <!-- <option value="SC">SC</option> -->
+            <!-- <option value="SE">SE</option> -->
+            <!-- <option value="SP">SP</option> -->
+            <!-- <option value="TO">TO</option> -->
+            <!-- <option value="Estrangeiro">Estrangeiro</option> -->
           </select>
         </div>
       </div>
@@ -204,6 +235,37 @@
       const forms = document.querySelectorAll('.needs-validation')
       const veri_cep = document.querySelector('.veri-cep')
 
+      const get_states = () => {
+        axios.get('https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome').then((response) => {
+          response.data.forEach((item) => {
+            const option = document.createElement('option');
+            option.value = item.sigla;
+            option.textContent = `${item.sigla} - ${item.nome}`;
+            document.querySelector('#states').append(option)
+          })
+        })
+      }
+
+      const get_cities = async (state) => {
+        await axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${state}/municipios`).then((response) => {
+          response.data.forEach((item, index) => {
+            const select_element = document.querySelector('#city');
+            index === 0 ? select_element.innerHtml = '' : null;
+            const option = document.createElement('option');
+            option.value = item.nome;
+            option.textContent = item.nome;
+            select_element.append(option);
+          })
+        })
+
+      }
+
+      document.querySelector('#states').addEventListener('change', (event) => {
+        get_cities(event.target.value);
+      })
+
+      get_states();
+
       const load_content = () => {
         if (document.querySelector('#pessoa-fisica').checked) {
           document.querySelector('.pessoa-fisica').classList.remove('d-none');
@@ -224,12 +286,14 @@
       veri_cep.addEventListener('click', () => {
         const cep = document.querySelector('#cep').value.trim().replace(/-/gi, '')
         if (!cep || cep === "") return
-        axios.get(`https://viacep.com.br/ws/${cep}/json/`).then((response) => {
+        axios.get(`https://viacep.com.br/ws/${cep}/json/`).then(async (response) => {
           if (response.status !== 200) return
           if (response.data.erro) return
+          
+          await get_cities(response.data.uf);
           document.querySelector('#bairro').value = response.data.bairro
-          document.querySelector('#uf').value = response.data.uf;
-          document.querySelector('#cidade').value = response.data.localidade
+          document.querySelector('#states').value = response.data.uf;
+          document.querySelector('#city').value = response.data.localidade
         })
       })
       const get_pessoa_tipo = () => {
@@ -259,9 +323,7 @@
             let nacio = '';
             let ie = '';
             let nire = '';
-            console.log(document.querySelector('#pessoa-fisica').checked)
             if (document.querySelector('#pessoa-fisica').checked) {
-              console.log('kend')
               rg = document.querySelector('#rg').value;
               rne = document.querySelector('#rne').value;
               sexo = get_sexo();
@@ -277,8 +339,8 @@
             const cep = document.querySelector("#cep").value
             const endereco = document.querySelector("#end").value
             const bairro = document.querySelector("#bairro").value
-            const cidade = document.querySelector("#cidade").value
-            const uf = document.querySelector("#uf").value
+            const cidade = document.querySelector("#city").value
+            const uf = document.querySelector("#states").value
             const complemento = document.querySelector("#complemento").value
 
             const data = {
